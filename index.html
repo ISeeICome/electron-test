@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>新闻管理</title>
+    <style>
+      body{
+        padding: 10px 20px;
+      }
+      .container {
+        width: 90%;
+        padding:0 10px;
+        max-width:800px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .set-download-dir-wrap{
+        margin-bottom:8px;
+      }
+      .operate-file{
+        position:relative;
+        height:290px;
+        /* border-top:1px solid #666;
+        border-bottom:1px solid #666; */
+      }
+      #content{
+        width: 100%;
+        height: 210px;
+        overflow: scroll;
+        border:1px solid #666;
+        padding: 4px 10px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      #content p {
+        margin: 10px;
+      }
+      .operate-wrap{
+        margin: 10px 0;
+        width:100%;
+      }
+      .operate-wrap label{ 
+        font-size: 14px;
+      }
+      .operate-btn{
+        margin: 10px 10px 10px 0;;
+      }
+      .select-dir-wrap{
+        margin:4px 0;
+        overflow: hidden;
+      }
+      .select-dir{
+        /* display: inline-block; */
+        font-size:14px;
+        margin:0;
+        /* width:200px; */
+        color:#333;
+      }
+      button{
+        display: inline-block;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        outline: 0;
+        -webkit-appearance: none;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        box-sizing: border-box;
+      }
+      button:hover{
+        opacity: .8;
+        filter: alpha(opacity=80);
+        color: #fff;
+      }
+      .router-content{
+        font-size: 14px;
+      }
+      .router-content label{
+        display: inline-block;
+        width: 150px;
+      }
+      .operate-process{
+        /* position: absolute;
+        right:0;
+        width: 50%; */
+      }
+      .operate-methods{
+        /* position: absolute; */
+        /* left:0; */
+        /* width: 50%; */
+      }
+      .operate-methods p{
+        margin: 8px 0;
+      }
+      #route-name{
+        width: 200px;
+        height: 24px;
+        padding: 4px 7px;
+        font-size: 14px;
+        border: 1px solid #d7dde4;
+        border-radius: 4px;
+        color: #657180;
+        background-color: #fff;
+        background-image: none;
+        cursor: text;
+        -webkit-transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out;
+        transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h3>新闻发布文件管理</h3>
+        <!-- <p>设置文件下载路径</p> -->
+        <!-- <div>
+          <div class = "set-download-dir-wrap">
+            <button class="select-dir-operate">选择下载路径</button>
+            <label class="select-dir">未选择路径...</label>
+          </div>
+        </div> -->
+        <p>预览路径查询</p>
+        <div class = "route-operate operate-wrap">
+          <div class = "search-route-wrap">
+              <label for="route-name">新闻命名：</label>
+              <input type="text" name="route-name" id="route-name" placeholder = "时间_英文（关键字）"/>
+              <button id = "search-route-btn">查询</button>
+          </div>
+          <div class="router-content">
+            <p id="pc-url">
+              <label for="">pc预览地址：</label>
+              <span>https://www.dyinnovations.com/dev/news/新闻命名/index.html</span>
+            </p>
+            <p id="mobile-url">
+              <label for="">mobile预览地址：</label>
+              <span>https://www.dyinnovations.com/dev/mobile/news/新闻命名/index.html</span>
+            </p>
+          </div>
+        </div>
+        <div class="operate-file">
+          <div class="operate-methods">
+            <p>图片管理</p>
+            <div class = "img-operate operate-wrap">
+              <div class = "select-dir-wrap">
+                <button class="select-dir-operate">选择文件夹</button>
+                <button id = "img-upload" class = "operate-btn">上传</button>
+                <label class="select-dir">未选择文件夹...</label>
+              </div>
+              <!-- <button id = "img-download" class = "operate-btn">下载</button> -->
+            </div>
+            <p>新闻配置管理</p>
+            <div class = "json-operate operate-wrap">
+              <div class = "select-dir-wrap">
+                <button class="select-dir-operate">选择文件夹</button>
+                <button id = "json-upload" class = "operate-btn">上传</button>
+                <label class="select-upload-dir">未选择文件夹...</label>
+              </div>
+              <div class = "select-dir-wrap">
+                <button class="select-download-dir-operate">选择文件夹</button>
+                <button id = "json-download" class = "operate-btn">下载</button>
+                <label class="select-download-dir">未选择文件夹...</label>
+              </div>
+            </div>
+          </div>
+          <div class="operate-process">
+            <p>操作进度</p>
+            <div id="content"></div>
+          </div>
+        </div>
+    </div>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "name": "news-manage",
+  "version": "1.0.0",
+  "description": "A newsManage application",
+  "main": "main.js",
+  "build": {
+    "appId": "newsManage.app",
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "nsis": {   
+      "oneClick": false, 
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "macBuild": "electron-builder --mac",
+    "winBuild": "electron-builder --win --x64"
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "devDependencies": {
+    "electron": "^6.0.8",
+    "electron-builder": "^21.2.0"
+  },
+  "dependencies": {
+    "ali-oss": "^6.1.1",
+    "jquery": "^3.4.1"
+  }
+}
